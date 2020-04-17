@@ -1,8 +1,9 @@
 package addressbook;
 
-import addressbook.controller.AddressBookController;
-import addressbook.model.Contact;
-import addressbook.repository.AddressBookRepo;
+import addressbook.controller.ContactController;
+import addressbook.entity.Contact;
+import addressbook.model.ContactDTO;
+import addressbook.repository.ContactRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -18,23 +19,22 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(AddressBookController.class)
-public class AddressBookControllerTests {
+@WebMvcTest(ContactController.class)
+public class ContactControllerTests {
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private AddressBookRepo addressBookRepo;
+    private ContactRepository contactRepository;
 
     @Test
     public void findAll_returnNonEmptyContacts() throws Exception {
         List<Contact> result = new ArrayList<>();
         Contact c = new Contact();
-        c.setFirstName("John");
-        c.setLastName("littleford");
+        c.setName("John");
         c.setTelephone("416-1234567");
         result.add(c);
-        when(addressBookRepo.findAll()).thenReturn(result);
+        when(contactRepository.findAll()).thenReturn(result);
         mockMvc.perform(request(HttpMethod.GET, "/contacts"))
                 .andExpect(status().isOk())
                 .andDo(print());
