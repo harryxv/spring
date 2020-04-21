@@ -1,4 +1,4 @@
-package addressbook;
+package addressbook.controller;
 
 import addressbook.controller.ContactController;
 import addressbook.entity.Contact;

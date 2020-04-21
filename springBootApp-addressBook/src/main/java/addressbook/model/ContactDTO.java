@@ -1,5 +1,6 @@
 package addressbook.model;
 
+
 public class ContactDTO {
     private Integer id;
     private String name;

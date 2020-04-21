@@ -8,9 +8,9 @@
 		<version>2.3.0.M4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>tutorials.java.addressbook</groupId>
 	<artifactId>addressbook</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>addressbook</name>
 	<description>address book project using Spring Boot</description>
